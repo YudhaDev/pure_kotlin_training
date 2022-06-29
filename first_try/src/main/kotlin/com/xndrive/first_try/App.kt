@@ -5,6 +5,7 @@ package com.xndrive.first_try
 
 fun main(args: Array<String>) {
     println(App().greeting)
+    App().showSomeAmazingWords()
 }
 
 class App {
@@ -12,6 +13,11 @@ class App {
         get() {
             return "Hello world."
         }
+    var sebuahSapaanYangRamah: String = "Selamat Pagi"
+
+    fun showSomeAmazingWords() {
+        print("Hello Kotlin")
+        println("Mari belajar Kotlin bersama")
+        print(sebuahSapaanYangRamah+" dan "+"Tetap semangat jangan menyerah.")
+    }
 }
-
-
