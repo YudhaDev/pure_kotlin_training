@@ -112,9 +112,9 @@ class App {
 class EnumTry{
     fun printEnumBasic(){
         println("Hasil output dari Enum Training".yellow())
-        println(Kolor.foreground("Ini text warna merah.", Color.RED))
-        println(EnumTraining.HIJAU)
-        println(EnumTraining.BIRU)
+        println(Kolor.foreground("Ini text warna merah dari kelas enum${EnumTraining.MERAH}.", Color.RED))
+        println(Kolor.foreground("Ini text warna merah dari kelas enum${EnumTraining.HIJAU}.", Color.GREEN))
+        println(Kolor.foreground("Ini text warna merah dari kelas enum${EnumTraining.BIRU}.", Color.BLUE))
         
     }
 }
