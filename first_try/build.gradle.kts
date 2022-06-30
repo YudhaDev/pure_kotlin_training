@@ -30,6 +30,9 @@ dependencies {
 
     // Use the Kotlin JUnit integration.
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
+
+    // println dengan warna
+    implementation("com.andreapivetta.kolor:kolor:1.0.0")
 }
 
 application {

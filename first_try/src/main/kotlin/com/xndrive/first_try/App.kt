@@ -4,6 +4,7 @@
 package com.xndrive.first_try
 
 import java.util.Arrays
+import com.andreapivetta.kolor.*
 
 fun main(args: Array<String>) {
     println(App().greeting)
@@ -16,7 +17,9 @@ fun main(args: Array<String>) {
     App().bermainDenganArray()
 
     App().bermainDenganSafeNull()
+    App().bermainDenganStringTemplate()
 
+    EnumTry().printEnumBasic()
 }
 
 class App {
@@ -96,4 +99,28 @@ class App {
         println("")
 
     }
+
+    fun bermainDenganStringTemplate() {
+        var jam = 7
+
+        println("Toko sedang ${if(jam >7) "tutup" else "buka"}")
+        // print("Office ${if (jam > 7) "already close" else "is open"}")
+        println("")
+    }
+}
+
+class EnumTry{
+    fun printEnumBasic(){
+        println("Hasil output dari Enum Training".yellow())
+        println(Kolor.foreground("Ini text warna merah.", Color.RED))
+        println(EnumTraining.HIJAU)
+        println(EnumTraining.BIRU)
+        
+    }
+}
+
+enum class EnumTraining(val warna : Int) {
+    MERAH(0xFF0000),
+    HIJAU(0x00FF00),
+    BIRU(0x0000FF)
 }
