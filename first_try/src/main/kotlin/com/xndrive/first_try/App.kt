@@ -6,6 +6,8 @@ package com.xndrive.first_try
 fun main(args: Array<String>) {
     println(App().greeting)
     App().showSomeAmazingWords()
+    App().sebuahFungsiYangUnik("Nama saya Yudha")
+    App().sebuahFungsiYangBiasa("Halo saya Adi")
 }
 
 class App {
@@ -14,10 +16,25 @@ class App {
             return "Hello world."
         }
     var sebuahSapaanYangRamah: String = "Selamat Pagi"
+    val sebuahBarisYangRapi: String = """
+        Baris 1
+        Baris 2
+        Baris 3
+        Baris 4
+        Baris 5
+    
+    """.trimIndent()
+    
+    fun sebuahFungsiYangBiasa(words: String){
+        println("Ini output dari Fungsi yang Biasa: $words") //atau bisa dengan cara dibawah
+        println("Ini output dari Fungsi yang Biasa II: "+words)
+    }
+    fun sebuahFungsiYangUnik(words : String) = "Ini merupakan hasil output dari Fungsi yang Unik: $words"
 
     fun showSomeAmazingWords() {
-        print("Hello Kotlin")
+        print("Hello Kotlin\n")
         println("Mari belajar Kotlin bersama")
-        print(sebuahSapaanYangRamah+" dan "+"Tetap semangat jangan menyerah.")
+        print(sebuahSapaanYangRamah+" dan "+"Tetap semangat jangan menyerah. \n")
+        println("Ini output dari Baris yang Rapi: \n"+sebuahBarisYangRapi)
     }
 }
