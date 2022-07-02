@@ -5,21 +5,33 @@ package com.xndrive.first_try
 
 import java.util.Arrays
 import com.andreapivetta.kolor.*
+import WhenSwitchCaseTraining
+import LoopTraining
 
 fun main(args: Array<String>) {
-    println(App().greeting)
-    App().showSomeAmazingWords()
-    print(App().sebuahFungsiYangUnik("Nama saya Yudha", "dan saya suka coding")+"\n")
-    App().sebuahFungsiYangBiasa("Halo saya Adi")
 
-    App().sebuahFungsiDebuggingTipeData()
-    App().readAbleNumberTest()
-    App().bermainDenganArray()
+    val debugTraining1 = false
 
-    App().bermainDenganSafeNull()
-    App().bermainDenganStringTemplate()
+    if(debugTraining1){
+        println(App().greeting)
+        App().showSomeAmazingWords()
+        print(App().sebuahFungsiYangUnik("Nama saya Yudha", "dan saya suka coding")+"\n")
+        App().sebuahFungsiYangBiasa("Halo saya Adi")
+    
+        App().sebuahFungsiDebuggingTipeData()
+        App().readAbleNumberTest()
+        App().bermainDenganArray()
+    
+        App().bermainDenganSafeNull()
+        App().bermainDenganStringTemplate()
+    
+        EnumTry().printEnumBasic()
+    } else {
+        // WhenSwitchCaseTraining().basicWhen()
+        // println(WhenSwitchCaseTraining().savingWhen())
+        LoopTraining().rangedLoop()
+    }
 
-    EnumTry().printEnumBasic()
 }
 
 class App {
@@ -112,15 +124,40 @@ class App {
 class EnumTry{
     fun printEnumBasic(){
         println("Hasil output dari Enum Training".yellow())
-        println(Kolor.foreground("Ini text warna merah dari kelas enum${EnumTraining.MERAH}.", Color.RED))
-        println(Kolor.foreground("Ini text warna merah dari kelas enum${EnumTraining.HIJAU}.", Color.GREEN))
-        println(Kolor.foreground("Ini text warna merah dari kelas enum${EnumTraining.BIRU}.", Color.BLUE))
+
+        //cara tradisional
+        // println(Kolor.foreground("Ini text warna merah dari kelas enum${EnumTraining.MERAH}.", Color.RED))
+        // println(Kolor.foreground("Ini text warna merah dari kelas enum${EnumTraining.HIJAU}.", Color.GREEN))
+        // println(Kolor.foreground("Ini text warna merah dari kelas enum${EnumTraining.BIRU}.", Color.BLUE))
+
+        //cara pakai abstract di enum classnya
+        EnumTraining.MERAH.printValue()
+        EnumTraining.HIJAU.printValue()
+        EnumTraining.BIRU.printValue()
+
+        println(Arrays.toString(EnumTraining.values()))
         
     }
 }
 
 enum class EnumTraining(val warna : Int) {
-    MERAH(0xFF0000),
-    HIJAU(0x00FF00),
-    BIRU(0x0000FF)
+    MERAH(0xFF0000){
+        override fun printValue() {
+            println(Kolor.foreground("Ini text warna merah dari kelas enum $MERAH = $warna.", Color.RED))
+        }
+    },
+    HIJAU(0x00FF00){
+        override fun printValue() {
+            println(Kolor.foreground("Ini text warna merah dari kelas enum $HIJAU = $warna.", Color.GREEN))
+        }
+    },
+    BIRU(0x0000FF){
+        override fun printValue() {
+            println(Kolor.foreground("Ini text warna merah dari kelas enum $BIRU = $warna.", Color.BLUE))
+        }
+    };
+
+    abstract fun printValue()
 }
+
+
