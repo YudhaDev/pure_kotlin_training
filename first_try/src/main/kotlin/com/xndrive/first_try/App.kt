@@ -99,7 +99,7 @@ fun main(args: Array<String>) {
 
         println("==Percobaan collection operation")
         val sorted = muridAbydos2.sortedByDescending { it.umur }
-        var listMapped= sorted.map { it.nama + "", it.umur * 10} //map digunakan jika kita ingin membuat list baru yang mana kita ingin merubah isi dari variable elemennya saat pembuatan
+        var listMapped= sorted.map { it.nama + ""} //map digunakan jika kita ingin membuat list baru yang mana kita ingin merubah isi dari variable elemennya saat pembuatan
         sorted.forEach { println(it) }
         val sumresult = muridAbydos2.sumBy { it.umur }
         println(sumresult)
