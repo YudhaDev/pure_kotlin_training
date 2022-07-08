@@ -99,12 +99,16 @@ fun main(args: Array<String>) {
 
         println("==Percobaan collection operation")
         val sorted = muridAbydos2.sortedByDescending { it.umur }
+        var listMapped= sorted.map { it.nama + "", it.umur * 10} //map digunakan jika kita ingin membuat list baru yang mana kita ingin merubah isi dari variable elemennya saat pembuatan
         sorted.forEach { println(it) }
         val sumresult = muridAbydos2.sumBy { it.umur }
         println(sumresult)
         println(sorted.first())
         println(sorted.last())
-        println(sorted.find { it.nama.contains("Shi")})
+        println("Kembalian dengan find: "+sorted.find { it.nama.contains("Shi", ignoreCase = true)}) //hanya mengembalikan satu elemen yang ditemukan awal-awal
+        println("Kembalian dengan filter: "+sorted.filter { it.nama.contains("Shi", ignoreCase = true) }) //mengembalikan semua elemen yang sesuai dengan kondisi
+        println("Kembalian dengan filter-not: "+sorted.filterNot { it.nama.contains("Shi", ignoreCase = true) }) //mengembalikan semua elemen yang tidak sesuai dengan kondisi
+        println("Isi dari listMapped: ${(listMapped as List<DataClassTraining>).toString()}")
     }
 
 }
