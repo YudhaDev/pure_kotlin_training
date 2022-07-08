@@ -5,8 +5,11 @@ package com.xndrive.first_try
 
 import java.util.Arrays
 import com.andreapivetta.kolor.*
+import com.google.gson.Gson
 import WhenSwitchCaseTraining
 import LoopTraining
+import DataClassTraining
+import DataClassTrainingInit
 
 fun main(args: Array<String>) {
 
@@ -29,7 +32,79 @@ fun main(args: Array<String>) {
     } else {
         // WhenSwitchCaseTraining().basicWhen()
         // println(WhenSwitchCaseTraining().savingWhen())
-        LoopTraining().rangedLoop()
+
+        // LoopTraining().rangedLoop()
+
+        var seorangMurid = DataClassTraining("Sunaookami Shiroko", 16, "Riding, Sports")
+        var seorangMurid2 = DataClassTraining("Sunaookami Shiroko", 16, "Gowes, Olahraga")
+        var seorangMurid3 = DataClassTraining("Sunaookami Shiroko", 16, "Riding, Sports")
+
+        val muridAbydos = DataClassTrainingInit().muridAbydos
+
+        // println("Keluaran training data class: ")
+        // println(seorangMurid.toString())
+        // println("Keluaran training data class dalam list: ")
+        // println(muridAbydos.toString())
+
+        //mencoba merubah ke json
+        //referensi: https://www.bezkoder.com/kotlin-parse-json-gson/
+        val gson = Gson()
+        var jsonSeorangMurid = gson.toJson(seorangMurid)
+        var jsonMuridAbydos = gson.toJson(muridAbydos)
+        println("Hasil konversi ke JSON: $jsonSeorangMurid")
+        println("Hasil konversi ke JSON: $jsonMuridAbydos")
+        println("Hasil equals: ${seorangMurid.equals(seorangMurid2)}")
+        println("Hasil equals: ${seorangMurid.equals(seorangMurid3)}")
+        println("Percobaan Clone: ")
+        var variable_kosong: DataClassTraining? = null
+        var variable_kosong2: DataClassTraining? = null
+
+        //percobaan tanpa clone
+        variable_kosong = muridAbydos[0]
+        variable_kosong.nama += " (ini tambahan luar)"
+        println("nilai variable kosong: ${variable_kosong.toString()}")
+        println("nilai listawal: ${muridAbydos[0].toString()}") //ini harusnya juga berubah
+
+        //jika list awal tidak ingin berubah maka pakai copy()
+        variable_kosong2 = muridAbydos[1].copy(nama = muridAbydos[1].nama + "(ini perubahan dari copy)") //copy juga bisa untuk memodifikasi variable juga
+        variable_kosong2.nama += " (ini tambahan dari luar)"
+        println("nilai variable kosong2: ${variable_kosong2.toString()}")
+        println("nilai listawal: ${muridAbydos[1].toString()}") //ini harusnya tidak berubah
+
+        //percobaan akses variable data class dengan komponen
+        //selain dengan menggunakan nama variable, akses variable data class bisa juga dengan menggunakan component
+        println("Percobaan akses variable data class: ${muridAbydos[0].component1()}")
+        println("Percobaan akses variable data class: ${muridAbydos[0].component2()}")
+        println("Percobaan akses variable data class: ${muridAbydos[0].component3()}")
+        //component-N akan bertambah secara otomatis dengan variable data class
+
+        //percobaan Set
+        var set_variable = DataClassTrainingInit().namaSekolah
+        DataClassTrainingInit().manipulasiLanjut()
+        println("Hasil keluaran percobaan set: ${set_variable.toString()}")
+
+        //percobaan Map
+        var map_variable = DataClassTrainingInit().muridRandom
+        map_variable.put("Hina", "Gehenna2") //ini akan mengganti key yang ada dengan value baru
+
+        println("Output percobaan map")
+        println(map_variable.toString())
+        println(map_variable.keys)
+        println(map_variable.values)
+        println(map_variable.get("Hina"))
+
+        //percobaan collection operation
+        val muridAbydos2: MutableList<DataClassTraining> = ArrayList() 
+        muridAbydos2.addAll(muridAbydos)
+
+        println("==Percobaan collection operation")
+        val sorted = muridAbydos2.sortedByDescending { it.umur }
+        sorted.forEach { println(it) }
+        val sumresult = muridAbydos2.sumBy { it.umur }
+        println(sumresult)
+        println(sorted.first())
+        println(sorted.last())
+        println(sorted.find { it.nama.contains("Shi")})
     }
 
 }

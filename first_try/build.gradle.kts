@@ -33,6 +33,9 @@ dependencies {
 
     // println dengan warna
     implementation("com.andreapivetta.kolor:kolor:1.0.0")
+
+    //merubah data clas ke json dan sebaliknya
+    implementation ("com.google.code.gson:gson:2.8.5")
 }
 
 application {
