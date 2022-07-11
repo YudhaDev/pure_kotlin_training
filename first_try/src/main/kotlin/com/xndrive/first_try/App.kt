@@ -10,10 +10,13 @@ import WhenSwitchCaseTraining
 import LoopTraining
 import DataClassTraining
 import DataClassTrainingInit
+import FunctionalProgrammingTraining
 
 fun main(args: Array<String>) {
 
     val debugTraining1 = false
+    val debugTraining2 = false
+    val debugTraining3 = true
 
     if(debugTraining1){
         println(App().greeting)
@@ -29,7 +32,7 @@ fun main(args: Array<String>) {
         App().bermainDenganStringTemplate()
     
         EnumTry().printEnumBasic()
-    } else {
+    } else if (debugTraining2){
         // WhenSwitchCaseTraining().basicWhen()
         // println(WhenSwitchCaseTraining().savingWhen())
 
@@ -109,7 +112,11 @@ fun main(args: Array<String>) {
         println("Kembalian dengan filter: "+sorted.filter { it.nama.contains("Shi", ignoreCase = true) }) //mengembalikan semua elemen yang sesuai dengan kondisi
         println("Kembalian dengan filter-not: "+sorted.filterNot { it.nama.contains("Shi", ignoreCase = true) }) //mengembalikan semua elemen yang tidak sesuai dengan kondisi
         println("Isi dari listMapped: ${(listMapped as List<DataClassTraining>).toString()}")
+    } else if (debugTraining3){
+        FunctionalProgrammingTraining().debuggingFunctionalProgramming()
+        FunctionalProgrammingTraining().debuggingExtensionFunctionAndProperties()
     }
+    
 
 }
 
