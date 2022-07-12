@@ -1,3 +1,8 @@
+typealias SebuahFungsiKali = (Int, Int) -> Int 
+typealias SebuahFungsiPrinKeString = (Int, Int) -> String
+typealias SebuahFungsiNullable = ((Int, Int) -> String)?
+
+
 class FunctionalProgrammingTraining {
     
     private fun functionTidakUrutParameternya(param1 : String, param2: String, param3 : String){}
@@ -35,15 +40,52 @@ class FunctionalProgrammingTraining {
     }
 
     val Int.bagi_setengah : Int  get() = this / 2
+    val Int?.bagi_empat : Int get() = if(this == null) 0 else this / 3 //bisa juda untuk nullable
+    val Int?.bagi_lima : Int get() = this?.div(5) ?: 0 //bisa juda untuk nullable + elvis operator
     val FunctionalProgrammingTraining.property_tambahan : String get() = "ahoy"
 
     fun debuggingExtensionFunctionAndProperties(){
         1000.fungsiTambahanPrint()
         20.bagi_setengah
-
+        
+        println("coba dengan nilai null: ${null.bagi_empat}")
+        println("coba dengan nilai null + elvis operator: ${10.bagi_lima}")
         println("coba: ${this.property_tambahan}")
 
     }
 
+    //Funtion Type
+    //Fungsi sebagai tipe data pada variabel
+    val implementasi_hasil_kali : SebuahFungsiKali = {IntA, IntB -> IntA * IntB} //baris ini gunanya untuk implement dari typealias yang sudah tertulis diatas(paling atas)
+    val implementasi_ke_string : SebuahFungsiPrinKeString = {intA, intB -> intA.toString() +"=="+intB.toString()}
+    val implementasi_fungsi_nullable : SebuahFungsiNullable = {intA, intB -> "isinya $intA dan $intB"}
+    fun debuggingFunctionType(){
+        println("=====debugging function type====")
+        println("hasil kali: ${implementasi_hasil_kali.invoke(10, 2)}")
+        println("hasil ke string: ${implementasi_ke_string.invoke(10, 2)}")
+        println("hasil nullable: ${implementasi_fungsi_nullable?.invoke(10, 2)}")
+    }
 
+    //Lambda
+    //Fungsi yang tidak memiliki nama
+    val sebuahLambda = {println("Halo ini fungsi lambda simpel")}
+    val sebuahLambdabaru = {pesan:  String, pengirim: String -> println("Isi pesan: $pesan, dikirim oleh: $pengirim")}
+
+    fun debuggingLambda() {
+        sebuahLambda()
+        sebuahLambdabaru("halo selamat pagi", "Yudha")
+    }
+    
+    //High Order Function
+
+    val sebuah_high_order: (String, String) -> String = {nama_karakter, sekolah -> "$nama_karakter bersekolah di $sekolah"}
+
+
+    fun arsip_biru_dengan_high_order(nama_arsip: String, nama_karakter: String, nama_sekolah: String, sebuah_high_order : (String, String) -> String){
+        println("$nama_arsip"+ sebuah_high_order(nama_karakter, nama_sekolah))
+    }
+
+    fun debuggingHighOrder() {
+        arsip_biru_dengan_high_order("Blue Archive", "Shiroko", "Abydos", sebuah_high_order) 
+    }
 }

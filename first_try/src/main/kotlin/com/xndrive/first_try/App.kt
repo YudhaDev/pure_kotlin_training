@@ -113,8 +113,11 @@ fun main(args: Array<String>) {
         println("Kembalian dengan filter-not: "+sorted.filterNot { it.nama.contains("Shi", ignoreCase = true) }) //mengembalikan semua elemen yang tidak sesuai dengan kondisi
         println("Isi dari listMapped: ${(listMapped as List<DataClassTraining>).toString()}")
     } else if (debugTraining3){
-        FunctionalProgrammingTraining().debuggingFunctionalProgramming()
-        FunctionalProgrammingTraining().debuggingExtensionFunctionAndProperties()
+        // FunctionalProgrammingTraining().debuggingFunctionalProgramming()
+        // FunctionalProgrammingTraining().debuggingExtensionFunctionAndProperties()
+        // FunctionalProgrammingTraining().debuggingFunctionType()
+        FunctionalProgrammingTraining().debuggingLambda()
+        FunctionalProgrammingTraining().debuggingHighOrder()
     }
     
 
