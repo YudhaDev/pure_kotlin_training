@@ -116,8 +116,10 @@ fun main(args: Array<String>) {
         // FunctionalProgrammingTraining().debuggingFunctionalProgramming()
         // FunctionalProgrammingTraining().debuggingExtensionFunctionAndProperties()
         // FunctionalProgrammingTraining().debuggingFunctionType()
-        FunctionalProgrammingTraining().debuggingLambda()
-        FunctionalProgrammingTraining().debuggingHighOrder()
+        // FunctionalProgrammingTraining().debuggingLambda()
+        // FunctionalProgrammingTraining().debuggingHighOrder()
+        // FunctionalProgrammingTraining().debuggingLambdaReceiver()
+        FunctionalProgrammingTraining().debuggingScopeFunLambdaReceiver()
     }
     
 
