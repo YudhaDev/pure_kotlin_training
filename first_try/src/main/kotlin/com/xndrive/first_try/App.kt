@@ -119,7 +119,11 @@ fun main(args: Array<String>) {
         // FunctionalProgrammingTraining().debuggingLambda()
         // FunctionalProgrammingTraining().debuggingHighOrder()
         // FunctionalProgrammingTraining().debuggingLambdaReceiver()
-        FunctionalProgrammingTraining().debuggingScopeFunLambdaReceiver()
+        // FunctionalProgrammingTraining().debuggingScopeFunLambdaReceiver()
+
+        // FunctionalProgrammingTraining().debuggingFunctionReference()
+
+        FunctionalProgrammingTraining().debuggingFoldDropTake()
     }
     
 

@@ -195,4 +195,55 @@ class FunctionalProgrammingTraining {
         println(sebuahText)
         println(debugApply)
     }
+
+    // Func Referrence
+    // mereferensikan implementasi lambda function ke dalam fungsi
+    // ga paham
+
+    fun implementasiFungsinya(nilai1: Int): Int = nilai1 * 2
+
+    fun debuggingFunctionReference() {
+        // var sebuah_fungsi_lambda1: (Int -> Int) = ::imple
+        val message1 = "ini adalah pesan"
+
+        println("debugging function reference")
+        // println(::message1.name)
+    }
+
+    // Fold, Drop, Take
+    // Fold berguna jika ingin menambahkan nilai dengan menyisipkan nilai baru pada indeks terdepan atau belakang
+    // Drop berguna untuk membuang sebagian dari list dan menyimpannya di sebuah variable baru
+    // Take berguna untuk mengambil beberapa elemen dari list yang kemudian disimpan kedalam variable baru
+    private fun testFold() {
+        val numbers = listOf(1, 12, 20)
+        val result =
+                numbers.fold(5) { current, item ->
+                    println("==Fold Item Sekarang==")
+                    println("current: $current, item: $item")
+                    current + item
+                }
+        println("Hasil: $result")
+
+        val result2 = numbers.foldRight(5) { curr, ite -> 
+            println("==Fold-Right Item Sekarang==")
+            println("current: $curr, item: $ite")
+            curr+ite
+        }
+        println("Hasil: $result2")
+
+    }
+
+    private fun testDrop(){
+        val numbers = 1.rangeTo(10) //sama aj dengan listof 1 sampai 10
+        // val numbers2 = listOf(1,2,3,4,5)
+        val drop_result = numbers.drop(3)
+        val drop_result2 = numbers.toMutableList().dropLast(3)
+        println("Drop Result: $drop_result")
+        println("Drop Result: $drop_result2")
+    }
+
+    fun debuggingFoldDropTake() {
+        testFold()
+        testDrop()
+    }
 }
