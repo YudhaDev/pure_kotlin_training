@@ -5,18 +5,21 @@ package com.xndrive.first_try
 
 import java.util.Arrays
 import com.andreapivetta.kolor.*
+import kotlinx.coroutines.*
 import com.google.gson.Gson
 import WhenSwitchCaseTraining
 import LoopTraining
 import DataClassTraining
 import DataClassTrainingInit
 import FunctionalProgrammingTraining
+import PraktekCoroutine
 
 fun main(args: Array<String>) {
 
     val debugTraining1 = false
     val debugTraining2 = false
-    val debugTraining3 = true
+    val debugTraining3 = false
+    val debugTrainingCoroutines = true
 
     if(debugTraining1){
         println(App().greeting)
@@ -124,6 +127,19 @@ fun main(args: Array<String>) {
         // FunctionalProgrammingTraining().debuggingFunctionReference()
 
         FunctionalProgrammingTraining().debuggingFoldDropTake()
+    } else if (debugTrainingCoroutines){
+        // runBlocking{
+        //     launch{
+        //         delay(1000L)
+        //         println("Ini coroutines")
+        //     }
+        //     delay(2000L)
+        //     println("Halooo")
+
+
+        // }
+        PraktekCoroutine().debuggingPraktekCoroutine()
+
     }
     
 
