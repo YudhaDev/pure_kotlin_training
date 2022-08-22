@@ -242,6 +242,8 @@ class FunctionalProgrammingTraining {
         println("Drop Result: $drop_result2")
     }
 
+
+
     fun debuggingFoldDropTake() {
         testFold()
         testDrop()

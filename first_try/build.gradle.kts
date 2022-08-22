@@ -6,7 +6,7 @@
 
 plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin.
-    id("org.jetbrains.kotlin.jvm") version "1.3.72"
+    id("org.jetbrains.kotlin.jvm") version "1.6.10"
 
     // Apply the application plugin to add support for building a CLI application.
     application
@@ -36,6 +36,9 @@ dependencies {
 
     //merubah data clas ke json dan sebaliknya
     implementation ("com.google.code.gson:gson:2.8.5")
+
+    //menambahkan coroutine
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1")
 }
 
 application {
